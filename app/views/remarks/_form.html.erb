@@ -1,0 +1,37 @@
+<%= form_for([@trade, @remark]) do |f| %>
+  <% if @remark.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@remark.errors.count, "error") %> prohibited this remark from being saved:</h2>
+
+      <ul>
+      <% @remark.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %><br />
+    <%= f.datetime_select :date %>
+  </div>
+  <div class="field">
+    <%= f.label :op %><br />
+    <%= f.text_field :op %>
+  </div>
+  <div class="field">
+    <%= f.label :cp %><br />
+    <%= f.text_field :cp %>
+  </div>
+  <div class="field">
+    <%= f.label :day_profit %><br />
+    <%= f.text_field :day_profit %>
+  </div>
+  <div class="field">
+    <%= f.label :remark %><br />
+    <%= f.text_field :remark %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

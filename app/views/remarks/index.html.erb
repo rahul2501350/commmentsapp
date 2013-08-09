@@ -1,0 +1,36 @@
+<h1>Listing remarks</h1>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>Op</th>
+    <th>Cp</th>
+    <th>Day profit</th>
+    <th>Remark</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @remarks.each do |remark| %>
+    
+  <tr>
+    <%# Time.zone = 'New Delhi' %>
+    <td><%= remark.date.to_formatted_s(:short)%></td>
+    <td><%= remark.op %></td>
+    <td><%= remark.cp %></td>
+    <td><%= remark.day_profit %></td>
+    <td><%= remark.remark %></td>
+     <td><%= link_to 'Show', trade_remark_path(@trade, remark) %></td> 
+     <td><%= link_to 'Edit', edit_trade_remark_path(@trade, remark) %></td> 
+     <td><%= link_to 'Destroy', [@trade, remark], method: :delete, data: { confirm: 'Are you sure?' } %></td> 
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Remark', new_trade_remark_path(@trade) %>
+<% if @remarks.last.present? %>
+<%= @remarks.last.date.to_formatted_s(:short) %>
+<% end %>

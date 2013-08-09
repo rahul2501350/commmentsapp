@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  stock: 
+  qty: 9.99
+  buy_price: 9.99
+  buy_date: 2013-08-07 14:26:15
+  bepoint: 9.99
+
+two:
+  stock: 
+  qty: 9.99
+  buy_price: 9.99
+  buy_date: 2013-08-07 14:26:15
+  bepoint: 9.99
