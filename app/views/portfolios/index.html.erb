@@ -4,6 +4,9 @@
   <tr>
     <th>Name</th>
     <th>Capital</th>
+    <th>Invested</th>
+    <th>Current Value</th>
+    <th>Profit/loss</th>
     <th></th>
     <th></th>
     <th></th>
@@ -13,8 +16,11 @@
   <tr>
     <td><%= portfolio.name %></td>
     <td><%= portfolio.capital %></td>
-    <td><%= link_to 'Show', portfolio %></td>
-    <td><%= link_to 'Trades', portfolio_trades_path(portfolio) %></td>
+    <td><%= portfolio.invested %></td>
+    <td><%= portfolio.current_port_value %></td>
+    <td><%= portfolio.port_profit_loss %></td>
+    <td><%= link_to 'Show', portfolio, remote: true %></td>
+    <td><%= link_to 'Trades', portfolio_trades_path(portfolio), remote: true %></td>
     <td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>
     <td><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -23,4 +29,26 @@
 
 <br />
 
-<%= link_to 'New Portfolio', new_portfolio_path %>
+<%= link_to 'New Portfolio', new_portfolio_path, id: "new_portfolio", remote: true %>
+<div class="well" id="showportfolio"></div>
+<div class="btn" id="newtradebutton">show new trade form</div>
+<div class="well" id="newtrade"></div>
+<div class="btn" id="showtradesbutton">show trades</div><p id="loading">Loading..</p>
+<div class="well" id="showtrades"> </div>
+
+<ul class="inline">
+<% @portfolios.each do |portfolio| %>
+    
+            <li id="portfolio_<%= portfolio.id %>"><%= portfolio.name %></li>
+        
+<% end %>
+</ul>
+
+
+<a href="" title=""  data-animation="apply a css fade transition to the tooltip">click</a>
+<a href="#" data-toggle="tooltip" data-placement="bottom" id="testtip">hover over me</a>
+<p id="tp">hi</p>
+
+
+
+

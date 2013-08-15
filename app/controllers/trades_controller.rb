@@ -18,6 +18,7 @@ class TradesController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @trades }
+      format.js
     end
   end
 
@@ -30,6 +31,7 @@ class TradesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @trade }
+      format.js
     end
   end
 
@@ -42,6 +44,7 @@ class TradesController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @trade }
+      format.js
     end
   end
 
@@ -66,6 +69,7 @@ class TradesController < ApplicationController
       else
         format.html { render action: "new" }
         format.json { render json: @trade.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end

@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
 //= require_tree .
 
 $( document ).ready(function() {
@@ -33,4 +34,52 @@ $( document ).ready(function() {
     // 	alert("event data: is " + event.data.foo);
     // });
 
+    $('#testtip').tooltip({
+        title: "title"
+    });
+
+    // $('#new_portfolio a').on("click", function(){
+    //     $.getScript(this.href);
+    //     return false;
+    // });
+        // $("#loading").hide();
+
+        $('#newtradebutton').click(function(){
+            $.ajax({
+              type: "GET",
+              url: "/portfolios/1/trades/new",
+              dataType: "script"
+            });
+        });
+
+        $('#showtradesbutton').click(function(){
+            // $("#showtrades").html("show trades box");
+            alert("hi");
+            $.ajax({
+              type: "GET",
+              url: "/portfolios/1/trades",
+              dataType: "script"
+            });
+         });
+
+        $('#showtradesbutton').on('ajax:beforeSend', function(event, xhr, settings) {
+          $("#loading").show();
+        });
+
+        
+
+        $("#showtradesbutton").on('ajax:success', function(evt, data, status, xhr){
+            $("#loading").hide();
+        });
+
+
+
+        // $('#portfolio_<%= portfolio.id %>').click(function(){
+        //     $.ajax({
+        //       type: "GET",
+        //       url: "/portfolios/new",
+        //       dataType: "script"
+        //     });
+        // });
 });
+

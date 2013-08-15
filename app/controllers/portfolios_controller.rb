@@ -18,6 +18,7 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @portfolio }
+      format.js
     end
   end
 
@@ -29,6 +30,7 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @portfolio }
+      format.js
     end
   end
 
@@ -79,5 +81,11 @@ class PortfoliosController < ApplicationController
       format.html { redirect_to portfolios_url }
       format.json { head :no_content }
     end
+  end
+
+  def new_view
+    respond_to do |format|               
+      format.js
+    end  
   end
 end
