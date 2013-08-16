@@ -8,15 +8,20 @@ gem 'rails', '3.2.13'
 
 gem 'bootstrap-sass', '~> 2.3.2.1'
 
-gem 'sqlite3'
+
 gem "stock_quote"
 gem "market_beat"
 gem "yahoo-finance", "~> 0.0.2"
 gem "yahoofinance", "~> 1.2.2"
 
+group :production do
+  gem 'pg'
+end
+
 group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
+	gem 'sqlite3'
 end	
 
 # Gems used only for assets and not required

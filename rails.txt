@@ -1,0 +1,200 @@
+Rails commands:
+	"bundle install" ---> install gems
+	"bundle update" -->  ???
+	"gem uninstall gem_name" ----> to uninstall a gem
+
+
+---CONTROLLER--------------
+
+	"rails generate controller StaticPages home help" ---->
+
+		#controller name in CamelCase and PRURAL generates snakecase file name(static_pages_controller.rb)
+		# generates (routes, views, helpers, assets)
+
+		# to add new page add --> (route, page in view/controlles, action in respective controller)
+
+
+
+---------------------------------------------------------------------------------------------
+----MODEL---------------------------
+
+rails generate model User name:string email:string
+
+	# model name in camelcase and singular generates {users table(users)}, {migration file([ts]_create_users.rb)}, {model file(users.rb)}
+
+
+----MIGRATION----
+"bundle exec rake db:migrate"  -----> generate sql file
+
+----
+
+
+----------------UNDOING THINGS--------------------
+
+$ rails generate controller FooBars baz quux
+  $ rails destroy controller FooBars baz quux
+
+$ rails generate model Foo bar:string baz:integer
+  $ rails destroy model Foo  
+
+$ rake db:migrate
+  $ rake db:rollback   -----> We can undo a single migration step using
+  $ rake db:migrate VERSION=0  ----->   To go all the way back to the beginning, we can use
+  $ bundle exec rake db:reset  -----> reset database
+
+----------------------------------------------------------------------------------------------------------------------  
+
+
+	"rails generate scaffold User name:string email:string"  ----> generate scaffold
+	"bundle exec rake db:migrate"  ---> to migrate database (scaffold)
+	"rake db:migrate"
+		
+		$ "bundle exec rake -T db" --->  you can see a list of database tasks using -T db:
+		$ "bundle exec rake -T"  ---> To see all the Rake tasks available, run
+
+	"rails s" ----> run server
+	"rails c --sandbox" ----> console
+
+
+
+
+
+
+------ROUTES------
+
+		DemoApp::Application.routes.draw do
+		  resources :microposts
+		  resources :users
+
+		  resources :sessions, only: [:new, :create, :destroy]
+
+		  match '/signout', to: 'sessions#destroy', via: :delete
+
+		  get "static_pages/help"  -----> controller/action
+		  .
+		  .
+		  .
+		end
+
+
+
+		  # get "static_pages/home"
+		  # match '/', to: 'static_pages#home'
+		    root to: 'static_pages#home'
+
+		  # get "static_pages/help"
+		    match '/help', to: 'static_pages#help'
+
+		  # get "static_pages/about"
+		    match '/about', to: 'static_pages#about'
+
+		  # get "static_pages/contact"
+		    match '/contact', to: 'static_pages#contact'	
+
+-----------------------------------------------------------
+
+er ---> <%     %>
+pe ---> <%=    %>
+pc ---> <%#    %>
+
+------:LINK SYNTAX:-------
+<%= link_to "Sign up now!", '#', class: "btn btn-large btn-primary" %>
+<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
+
+
+
+
+
+
+
+
+
+GIT----------------------------
+
+	git init  -----> 						initialize git repo
+	git add . -----> 					add all the in git repo( except .gitignore) ---->  adds file to the stging area.
+	git commit -m "initial commit"	----> -m flag lets you enter the message for commit.	
+	git log ----> 							to see the commit messages, type "q" to quit.
+	git checkout -f ---> 					we can still undo the changes easily by having Git check out the previous commit with the checkout command (and a -f flag to force overwriting the current changes)
+	git checkout master ---> come back to master branch
+
+------------- CREATING NEW REPO FROM COMMAND LINE ----------------
+
+	git init
+	git commit -m "first commit"
+	git remote add origin git@github.com:rahul2501350/first_app.git
+	git push -u origin master
+
+------Push an existing repository from the command line-------
+
+	git remote add origin git@github.com:rahul2501350/first_app.git
+	git push -u origin master
+			# These commands tell Git that you want to add GitHub as the origin for your main (master) branch and then push your repository up to GitHub.
+			# Remember local branches will not be pushed until it is mergeg with master branch. to push local branch command "git push -u origin local_branch_name"
+
+	"git checkout <hash>"   ------> get commit hash from "git log"
+	"git checkout -b newbranch 6e559cb95" ----> create new branch with the commit	
+
+
+----------------BRANCH-------------------------------
+
+git checkout -b new_branch_name   ----> creates new branch and switch to it.
+git branch  ----> shows all the branch and current branch
+
+--EDIT--
+
+git commit -a -m "Improve the README file"----> instead of "git add ." we are using -a flag which commits all modifications to existing files but not new files.
+
+##Be careful about using the -a flag improperly; if you have added any new files to the project since the last commit, you still have to tell Git about them using git add first.
+
+---MERGE---
+git checkout master ---> come back to master branch
+git merge modify-README  -----> merge readme with master
+
+--DELETE--
+git branch -d modify-README  ---> -d fld deleted topic branch
+git branch -D modify-README  ---> -D flag abandons the topic branch, for major screw ups.
+	##Unlike the -d flag, the -D flag will delete the branch even though we haven’t merged in the changes.
+
+---PUSH----
+git push ----> Since we have already done one push (Section 1.3.4), on most systems we can omit origin master, and simply run git push
+
+
+----------DEPLOYING  HEROKU------------
+
+heroku login ----> login heroku (rahul2501350@gmail.com, 7442324594)
+heroku create ----> creates new app and gives subdomain
+git push heroku master -----> push app to heroku
+	git push heroku ---> afterwards push
+heroku open  ------> to open web app on browser
+
+heroku create --stack cedar
+$ heroku run rake db:migrate ---->  
+
+
+heroku keys:add ---> to add ssh key to heroku
+
+
+
+-----------------SUBLIME--------------------------
+
+Packages installed----
+	
+	Applyayntax
+	ERB Snippets
+	HTML Snippets
+	HTML5
+	HTMLAttributes
+	HTMLBeautify
+	Line Completion
+	Package Control
+	Rails file switcher
+	Rails related files
+	rails sublime backup
+	Ruby on Rails snippets
+	SideBar Enhancements
+	Simple Rails Navigator
+	SublimeCodeIntel
+	sublimelint
+	SublimeLinter
+
