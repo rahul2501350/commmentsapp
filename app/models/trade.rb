@@ -5,19 +5,19 @@ class Trade < ActiveRecord::Base
   belongs_to :portfolio
 
   def amount
-  	qty.to_i*buy_price
+  	qty.to_f*buy_price.to_f
   end
 
   def totalpl
-  	last_amount - amount
+  	last_amount.to_f - amount.to_f
   end
 
   def last_price
-  	StockQuote::Stock.quote("#{self.stock}").last
+  	StockQuote::Stock.quote("#{self.stock}").last.to_f
   end
 
   def last_amount
-  	last_price.to_i*qty.to_i
+  	last_price.to_i*qty.to_f
   end
 
 end

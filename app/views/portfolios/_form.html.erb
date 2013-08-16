@@ -10,16 +10,52 @@
       </ul>
     </div>
   <% end %>
-
+<!-- name -->
   <div class="field">
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <!-- Capital -->
   <div class="field">
     <%= f.label :capital %><br />
     <%= f.text_field :capital %>
   </div>
+<!-- Brokerage -->
+  <div class="field">
+    <%= f.label :brokerage %><br />
+    <%= f.text_field :brokerage %>
+  </div>
+<!--  -->
+  <div class="field">
+    <%= f.label :taxslipage, 'Tax + Slipage' %><br />
+    <%= f.text_field :taxslipage %>
+  </div>
+
+  <div class="field">
+    <%= f.label :totalextraround, 'Total Extra on round trip' %><br />
+    <%= f.text_field :totalextraround %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mriskstock, 'Max risk on Stock' %><br />
+    <%= f.text_field :mriskstock %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mriskcapitals, 'Max risk on Capital' %><br />
+    <%= f.text_field :mriskcapital %>
+  </div>
+
+  <div class="field">
+    <%= f.label :mcats, 'Max Capital Allocated to Stock' %><br />
+    <%= f.text_field :mcats %>
+  </div>
+
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
+  <span class="btn" id="hide">Hide</span>
 <% end %>

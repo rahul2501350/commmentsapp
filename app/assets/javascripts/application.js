@@ -72,6 +72,10 @@ $( document ).ready(function() {
             $("#loading").hide();
         });
 
+        $(document).on("click", "#hide", function(){
+            $(this).parent().parent().slideUp();
+        });
+
 
 
         // $('#portfolio_<%= portfolio.id %>').click(function(){
@@ -81,5 +85,9 @@ $( document ).ready(function() {
         //       dataType: "script"
         //     });
         // });
+
+  
+
+
 });
 
