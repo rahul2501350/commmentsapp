@@ -30,7 +30,7 @@
     <td><%= trade.buy_date.to_formatted_s(:short) %></td>
     <td><%= trade.bepoint %></td>
     <td><%= trade.totalpl %></td>
-    <td><%= link_to 'Show', portfolio_trade_path(@portfolio, trade), remote: true %></td>
+    <td><%= link_to 'Show', portfolio_trade_path(@portfolio, trade), id: "showtradelink" %></td>
     <td><%= link_to 'Remarks', trade_remarks_path(trade) %></td>
     <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
     <td><%= link_to 'Destroy', [@portfolio, trade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -40,12 +40,14 @@
 
 <br />
 
-<%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), remote: true %>
+<%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %>
+<span class="btn" id="hide1">Hide</span>
 
-<div class="well" id="newtrade"></div>
+<div class="well" id="newtradeform"></div>
+<div class="well" id="showtrade"></div>
 
 <!-- Ranodm Examples -->
-            <% if false %>
+    <% if false %>
                 <% Time.zone = 'New Delhi' %>
             <p><%= Date.current.to_formatted_s(:short) %> </p>
             <p><%= Time.current.to_formatted_s(:short) %> </p>
@@ -59,7 +61,7 @@
 
 
                 <%= @quote.lastTrade %>
-            <% end %>
+    <% end %>
 
 
     

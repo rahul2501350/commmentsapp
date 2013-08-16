@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Stock:</b>
+  <%= @trade.stock %>
+</p>
+
+<p>
+  <b>Qty:</b>
+  <%= @trade.qty %>
+</p>
+
+<p>
+  <b>Buy price:</b>
+  <%= @trade.buy_price %>
+</p>
+
+<p>
+  <b>Buy date:</b>
+  <%= @trade.buy_date %>
+</p>
+
+<p>
+  <b>Bepoint:</b>
+  <%= @trade.bepoint %>
+</p>
+
+
+<%= link_to 'Edit', edit_portfolio_trade_path(@portfolio, @trade) %> |
+<%= link_to 'Back', portfolio_trades_path(@portfolio) %>
+<span class="btn" id="hide1">Hide</span>

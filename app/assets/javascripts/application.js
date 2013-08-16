@@ -52,15 +52,41 @@ $( document ).ready(function() {
             });
         });
 
-        $('#showtradesbutton').click(function(){
+        // $('#showtradelink').click(function(){
+        //     // $("#showtrades").html("show trades box");
+        //     alert("hi");
+        //     $.ajax({
+        //       type: "GET",
+        //       url: "/portfolios/1/trades/1",
+        //       dataType: "script"
+        //     });
+        //  });
+
+
+
+        $(document).on("click", "#showtradelink", function(){
             // $("#showtrades").html("show trades box");
             alert("hi");
             $.ajax({
               type: "GET",
-              url: "/portfolios/1/trades",
+              url: this.href,
               dataType: "script"
             });
+            return false;
          });
+
+
+        $(document).on("click", "#newtradelink", function(){
+            // $("#showtrades").html("show trades box");
+            alert("hi");
+            $.ajax({
+              type: "GET",
+              url: this.href,
+              dataType: "script"
+            });
+            return false;
+         });
+
 
         $('#showtradesbutton').on('ajax:beforeSend', function(event, xhr, settings) {
           $("#loading").show();
@@ -75,6 +101,12 @@ $( document ).ready(function() {
         $(document).on("click", "#hide", function(){
             $(this).parent().parent().slideUp();
         });
+
+        $(document).on("click", "#hide1", function(){
+            $(this).parent().slideUp();
+        });
+
+
 
 
 
