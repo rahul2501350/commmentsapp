@@ -16,9 +16,10 @@
   <tr>
     <td><%= portfolio.name %></td>
     <td><%= portfolio.capital %></td>
-    <td><%= portfolio.invested %></td>
-    <td><%= portfolio.current_port_value %></td>
-    <td><%= portfolio.port_profit_loss %></td>
+
+    <td><%= number_with_precision(portfolio.invested)  %></td>
+    <td><%= number_with_precision(portfolio.current_port_value) %></td>
+    <td><%= number_with_precision(portfolio.port_profit_loss) %></td>
     <td><%= link_to 'Show', portfolio, remote: true %></td>
     <td><%= link_to 'Trades', portfolio_trades_path(portfolio), remote: true %></td>
     <td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>

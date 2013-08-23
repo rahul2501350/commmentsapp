@@ -1,16 +1,24 @@
-<h1>Listing trades</h1>
+<h1>Listing trades</h1><span class="btn" id="hide1">Hide</span>
 
 <table>
   <tr>
     <th>Portfolio</th>
-    <th>Stock</th>
+    <th>Buy date</th>
+    <th>Script</th>
     <th>Qty</th>
     <th>Buy price</th>
+    <th>Stop Loss</th>
     <th>Last Price</th>
     <th>Amount Invested</th>
+    <th>Total Brokerage</th>
+    <th>Total Amount</th>
     <th>Last Amount</th>
-    <th>Buy date</th>
+    <th>Min StopLoss</th>
     <th>Bepoint</th>
+    <th>Ideal Quantity</th>
+    <th>Risk</th>
+    <th> Risk % Stock</th>
+    <th> Risk % Portfolio</th>
     <th>Profit/Loss</th>
     <th></th>
     <th></th>
@@ -20,16 +28,24 @@
 <% @trades.each do |trade| %>
   <tr>
     <% Time.zone = 'New Delhi' %>
-    <td> <%= trade.portfolio.name %></td>
-    <td><%= trade.stock %></td>
-    <td><%= trade.qty %></td>
-    <td><%= trade.buy_price %></td>
-    <td><%= trade.last_price %></td>
-    <td><%= trade.amount %></td>
-    <td><%= trade.last_amount %></td>
-    <td><%= trade.buy_date.to_formatted_s(:short) %></td>
-    <td><%= trade.bepoint %></td>
-    <td><%= trade.totalpl %></td>
+    <td> <%= trade.portfolio.name %></td>     <!-- Portfolio -->  
+    <td><%= trade.buy_date.to_formatted_s(:short) %></td>  <!-- buy date -->
+    <td><%= trade.stock %></td>  <!-- Script -->
+    <td><%= trade.qty %></td> <!-- qty -->
+    <td><%= trade.buy_price %></td>  <!-- buy price -->
+    <td><%= trade.bepoint %></td> <!-- Stip Loss -->
+    <td><%= trade.last_price %></td> <!-- last price -->
+    <td><%= trade.amount %></td> <!-- amount invested -->
+    <td><%= number_with_precision(trade.tbr) %></td>   <!-- total brokerage -->
+    <td><%= number_with_precision(trade.tamount) %></td> <!-- total amount -->
+    <td><%= number_with_precision(trade.last_amount) %></td> <!-- last amount -->
+    <td><%= number_with_precision(trade.minstoploss) %></td> <!-- min Stoploss -->
+    <td><%= number_with_precision(trade.be_point) %></td>  <!-- be point -->
+    <td><%= number_with_precision(trade.iqty) %></td>
+    <td><%= number_with_precision(trade.risk) %></td>
+    <td><%= number_with_precision(trade.riskperstock) %></td>
+    <td><%= number_with_precision(trade.riskperport) %></td>
+    <td><%= number_with_precision(trade.totalpl) %></td> <!-- p/l -->
     <td><%= link_to 'Show', portfolio_trade_path(@portfolio, trade), id: "showtradelink" %></td>
     <td><%= link_to 'Remarks', trade_remarks_path(trade) %></td>
     <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
@@ -41,10 +57,10 @@
 <br />
 
 <%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %>
-<span class="btn" id="hide1">Hide</span>
 
-<div class="well" id="newtradeform"></div>
-<div class="well" id="showtrade"></div>
+
+<div class="well" id="newtradeform" style="display: none;"></div>
+<div class="well" id="showtrade" style="display: none;"></div>
 
 <!-- Ranodm Examples -->
     <% if false %>

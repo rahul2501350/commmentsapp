@@ -21,6 +21,7 @@ class Portfolio < ActiveRecord::Base
 
   def port_profit_loss
   	current_port_value.to_f - invested.to_f  	
-  end
+  end 
 
+  
 end

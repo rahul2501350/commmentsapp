@@ -169,7 +169,8 @@ git push heroku master -----> push app to heroku
 heroku open  ------> to open web app on browser
 
 heroku create --stack cedar
-$ heroku run rake db:migrate ---->  
+$ heroku run rake db:migrate ----> 
+$ heroku run:detached rake db:migrate 
 
 
 heroku keys:add ---> to add ssh key to heroku
