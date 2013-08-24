@@ -1,36 +1,66 @@
-<h1>Listing portfolios</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Capital</th>
-    <th>Invested</th>
-    <th>Current Value</th>
-    <th>Profit/loss</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<div class="row-fluid">
+    <div class="span12 well">
+        <ul class="inline portinline">
+           <% @portfolios.each do |portfolio| %>                     
+            <!-- <li id="portfolio_<%= portfolio.id %>" class="btn"><%= portfolio.name %></li> -->
+            <li class="btn"><%= link_to "#{portfolio.name}", portfolio, remote: true %></li>                         
+           <% end %>
+        </ul>
 
-<% @portfolios.each do |portfolio| %>
-  <tr>
-    <td><%= portfolio.name %></td>
-    <td><%= portfolio.capital %></td>
+        <span class="btn newportbtn"><%= link_to 'New Portfolio', new_portfolio_path, id: "new_portfolio", remote: true %></span>
+        
 
-    <td><%= number_with_precision(portfolio.invested)  %></td>
-    <td><%= number_with_precision(portfolio.current_port_value) %></td>
-    <td><%= number_with_precision(portfolio.port_profit_loss) %></td>
-    <td><%= link_to 'Show', portfolio, remote: true %></td>
-    <td><%= link_to 'Trades', portfolio_trades_path(portfolio), remote: true %></td>
-    <td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>
-    <td><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+    </div>
 
-<br />
+    <div class="span8 well">
+        
+    </div>
 
-<%= link_to 'New Portfolio', new_portfolio_path, id: "new_portfolio", remote: true %>
+    <div class="span3 well">
+        
+    </div>
+
+</div>
+
+
+                                        <% if false %>
+                                            <h1>Listing portfolios</h1>
+
+                                        <table>
+                                          <tr>
+                                            <th>Name</th>
+                                            <th>Capital</th>
+                                            <th>Invested</th>
+                                            <th>Current Value</th>
+                                            <th>Profit/loss</th>
+                                            <th></th>
+                                            <th></th>
+                                            <th></th>
+                                          </tr>
+
+                                        <% @portfolios.each do |portfolio| %>
+                                          <tr>
+                                            <td><%= portfolio.name %></td>
+                                            <td><%= portfolio.capital %></td>
+
+                                            <td><%= number_with_precision(portfolio.invested)  %></td>
+                                            <td><%= number_with_precision(portfolio.current_port_value) %></td>
+                                            <td><%= number_with_precision(portfolio.port_profit_loss) %></td>
+                                            <td><%= link_to 'Show', portfolio, remote: true %></td>
+                                            <td><%= link_to 'Trades', portfolio_trades_path(portfolio), remote: true %></td>
+                                            <td><%= link_to 'Edit', edit_portfolio_path(portfolio) %></td>
+                                            <td><%= link_to 'Destroy', portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                                          </tr>
+                                        <% end %>
+                                        </table>
+
+                                        <br />
+
+                                        <%= link_to 'New Portfolio', new_portfolio_path, id: "new_portfolio", remote: true %>
+                                        <% end %>
+
+
 
 
 <div class="well" id="newportfolioform" style="display: none;"></div>
