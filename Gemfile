@@ -13,6 +13,7 @@ gem "stock_quote"
 gem "market_beat"
 gem "yahoo-finance", "~> 0.0.2"
 gem "yahoofinance", "~> 1.2.2"
+gem 'gon', '3.0.5'
 
 group :production do
   gem 'pg'

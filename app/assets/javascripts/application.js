@@ -117,9 +117,21 @@ $( document ).ready(function() {
         //       dataType: "script"
         //     });
         // });
-
+            $(document).on("click", "#showremarklink", function(){
+                    $.ajax({
+                      type: "GET",
+                      url: this.href,
+                      dataType: "script"
+                });
+                return false;
+            });
   
+        // $(document).on("click", "tr", function(){
+        //     // $(this).next().show();
+            
 
+        //     $(this).next().toggle('slow');       
+        // });
 
 });
 

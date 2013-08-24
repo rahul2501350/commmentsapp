@@ -12,6 +12,7 @@ class RemarksController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @remarks }
+      format.js
     end
   end
 

@@ -6,6 +6,7 @@ class TradesController < ApplicationController
     # @trades = Trade.all
     @portfolio = Portfolio.find(params[:portfolio_id])
     @trades = @portfolio.trades.all
+   
 
 
      symbol = "LSE.L"
