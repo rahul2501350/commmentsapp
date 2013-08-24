@@ -1,8 +1,8 @@
-<h1>Listing trades</h1><span class="btn" id="hide1">Hide</span>
+<h1>Listing trades (<%= @trades.first.portfolio.name %>)</h1>
 
-<table>
+<table class="tradetable">
   <tr>
-    <th>Portfolio</th>
+    <!-- <th>Portfolio</th> -->
     <th>Buy date</th>
     <th>Script</th>
     <th>Qty</th>
@@ -38,7 +38,7 @@
             <% end %>
 
                    
-        <td> <%= trade.portfolio.name %></td>     <!-- Portfolio -->  
+        <!-- <td> <%#= trade.portfolio.name %></td> -->     <!-- Portfolio -->  
         <td><%= trade.buy_date.to_formatted_s(:short) %></td>  <!-- buy date -->
         <td><%= trade.stock %></td>  <!-- Script -->
         <td><%= trade.qty %></td> <!-- qty -->
@@ -63,9 +63,9 @@
         <td><%= link_to 'Edit', edit_trade_path(trade) %></td>
         <td><%= link_to 'Destroy', [@portfolio, trade], method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
-      <tr style="display: none;">
+      <tr >
         <td colspan="8" rowspan="" headers="" >
-            <div class="well" id="remark_<%= trade.id %>">
+            <div class="well" id="remark_<%= trade.id %>" style="display: none;">
                 hello
             </div>
         </td>
@@ -75,8 +75,8 @@
 </table>
 
 <br />
-
-<%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %>
+<span class="btn"><%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %></span>
+<span class="btn" id="hide1">Hide</span>
 
 
 <div class="well" id="newtradeform" style="display: none;"></div>

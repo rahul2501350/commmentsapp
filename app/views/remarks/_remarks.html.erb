@@ -1,4 +1,5 @@
 <h1>Listing remarks</h1>
+<%= @remarks.first.trade.stock %>
 
 <table>
   <tr>
@@ -34,3 +35,5 @@
 <% if @remarks.last.present? %>
 <%= @remarks.last.date.to_formatted_s(:short) %>
 <% end %>
+<span class="btn" id="hide1">Hide</span>
+

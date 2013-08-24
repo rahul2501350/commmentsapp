@@ -1,15 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @portfolio.name %>
-</p>
-
-<p>
-  <b>Capital:</b>
-  <%= @portfolio.capital %>
-</p>
-
 <table>
   <tr>
     <th>Name</th>
@@ -30,15 +20,15 @@
     <td><%= number_with_precision(@portfolio.invested)  %></td>
     <td><%= number_with_precision(@portfolio.current_port_value) %></td>
     <td><%= number_with_precision(@portfolio.port_profit_loss) %></td>
-    <td><%= link_to 'Show', @portfolio, remote: true %></td>
-    <td><%= link_to 'Trades', portfolio_trades_path(@portfolio), remote: true %></td>
-    <td><%= link_to 'Edit', edit_portfolio_path(@portfolio) %></td>
-    <td><%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <!-- <td class="btn"><%#= link_to 'Show', @portfolio, remote: true %></td> -->
+    <td class="btn"><%= link_to 'Trades', portfolio_trades_path(@portfolio), remote: true %></td>
+    <!-- <td class="btn"><%#= link_to 'Edit', edit_portfolio_path(@portfolio) %></td> -->
+    
   </tr>
 
 </table>
 
-
-<%= link_to 'Edit', edit_portfolio_path(@portfolio) %> |
-<%= link_to 'Back', portfolios_path %>
+<span class="btn"><%= link_to 'Edit', edit_portfolio_path(@portfolio) %></span>
+<span class="btn"><%= link_to 'Back', portfolios_path %></span>
+<span class="btn"><%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></span>
 <span class="btn" id="hide1">Hide</span>

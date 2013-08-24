@@ -2,8 +2,9 @@
 <div class="row-fluid">
     <div class="span12 well">
         <ul class="inline portinline">
+            <!-- listing all the portfolios -->
            <% @portfolios.each do |portfolio| %>                     
-            <!-- <li id="portfolio_<%= portfolio.id %>" class="btn"><%= portfolio.name %></li> -->
+            <!--  show portfolio button -->
             <li class="btn"><%= link_to "#{portfolio.name}", portfolio, remote: true %></li>                         
            <% end %>
         </ul>
@@ -13,15 +14,8 @@
 
     </div>
 
-    <div class="span8 well">
-        
-    </div>
 
-    <div class="span3 well">
-        
-    </div>
 
-</div>
 
 
                                         <% if false %>
@@ -88,6 +82,15 @@
                 <% end %>
 
 
+    <div class="span8 well">
+        
+    </div>
+
+    <div class="span3 well">
+        
+    </div>                
+
+</div>
 
 
 

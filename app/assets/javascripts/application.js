@@ -118,6 +118,10 @@ $( document ).ready(function() {
         //     });
         // });
             $(document).on("click", "#showremarklink", function(){
+
+                // $(this).closest("div").addClass("colorb");
+                $(this).parent().parent().next().addClass("colorb");
+                alert("hshsh")
                     $.ajax({
                       type: "GET",
                       url: this.href,

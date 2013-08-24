@@ -1,5 +1,12 @@
-$("#showremark").slideDown();
-$("#showremark").html("<%= j (render("remarks")) %>");
+// $("#showremark").slideDown();
+// $("#showremark").html("<%= j (render("remarks")) %>");
+
+// $(this).parent().parent().next().hide();
+// $("#remark_<%= @remarks.first.trade.id %>").hide();
+$("#remark_<%= @remarks.first.trade.id %>").slideDown().html("<%= j (render("remarks")) %>");
+
+
+// $(this).hide();
 
 
 
