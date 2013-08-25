@@ -61,6 +61,25 @@ $( document ).ready(function() {
         //       dataType: "script"
         //     });
         //  });
+        
+        
+            // $.ajax({
+            //   type: "GET",
+            //   url: "/portfolios/1",
+            //   dataType: "script",
+            //   beforeSend : function(){
+            //     $('#showportfolio').show().html("loading...");
+            //     }
+            // });
+
+            // $.ajax({
+            //   type: "GET",
+            //   url: "/portfolios/1/trades",
+            //   dataType: "script",
+            //   beforeSend : function(){
+            //     $('#showtrades').show().html("loading...");
+            //     }
+            // });
 
 
 
@@ -70,7 +89,10 @@ $( document ).ready(function() {
             $.ajax({
               type: "GET",
               url: this.href,
-              dataType: "script"
+              dataType: "script",
+              beforeSend : function(){
+                $('#showtrades').show().html("loading...");
+                }
             });
             return false;
          });
@@ -120,7 +142,7 @@ $( document ).ready(function() {
             $(document).on("click", "#showremarklink", function(){
 
                 // $(this).closest("div").addClass("colorb");
-                $(this).parent().parent().next().addClass("colorb");
+                // $(this).parent().parent().next().addClass("colorb");
                 alert("hshsh")
                     $.ajax({
                       type: "GET",
