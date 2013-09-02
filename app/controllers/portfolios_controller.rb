@@ -3,6 +3,9 @@ class PortfoliosController < ApplicationController
   # GET /portfolios.json
   def index
     @portfolios = Portfolio.all
+    
+
+    
 
     respond_to do |format|
       format.html # index.html.erb

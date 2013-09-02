@@ -2,6 +2,7 @@ class Portfolio < ActiveRecord::Base
   attr_accessible :capital, :name, :brokerage, :taxslipage, :totalextraround, :mriskstock, :mriskcapital, :mcats
 
   has_many :trades
+  belongs_to :user
 
   def invested
   	sum = nil

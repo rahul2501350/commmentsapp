@@ -14,6 +14,7 @@ gem "market_beat"
 gem "yahoo-finance", "~> 0.0.2"
 gem "yahoofinance", "~> 1.2.2"
 gem 'gon', '3.0.5'
+gem 'devise'
 
 group :production do
   gem 'pg'
@@ -23,6 +24,7 @@ group :development do
 	gem 'better_errors'
 	gem 'binding_of_caller'
 	gem 'sqlite3'
+	gem "rails-erd"
 end	
 
 # Gems used only for assets and not required

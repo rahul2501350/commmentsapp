@@ -29,6 +29,8 @@ GEM
       i18n (= 0.6.1)
       multi_json (~> 1.0)
     arel (3.0.2)
+    bcrypt-ruby (3.1.1)
+    bcrypt-ruby (3.1.1-x86-mingw32)
     better_errors (0.9.0)
       coderay (>= 1.0.0)
       erubis (>= 2.6.6)
@@ -37,6 +39,7 @@ GEM
     bootstrap-sass (2.3.2.1)
       sass (~> 3.2)
     builder (3.0.4)
+    choice (0.1.6)
     coderay (1.0.9)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
@@ -46,6 +49,11 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     debug_inspector (0.0.2)
+    devise (3.0.0)
+      bcrypt-ruby (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 3.2.6, < 5)
+      warden (~> 1.2.3)
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
@@ -66,6 +74,7 @@ GEM
     market_beat (0.2.0)
     mime-types (1.23)
     multi_json (1.7.7)
+    orm_adapter (0.4.0)
     pg (0.16.0-x86-mingw32)
     polyglot (0.3.3)
     rack (1.4.5)
@@ -83,6 +92,11 @@ GEM
       activesupport (= 3.2.13)
       bundler (~> 1.0)
       railties (= 3.2.13)
+    rails-erd (1.1.0)
+      activerecord (>= 3.0)
+      activesupport (>= 3.0)
+      choice (~> 0.1.6)
+      ruby-graphviz (~> 1.0.4)
     railties (3.2.13)
       actionpack (= 3.2.13)
       activesupport (= 3.2.13)
@@ -95,6 +109,7 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ruby-graphviz (1.0.9)
     sass (3.2.10)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -119,6 +134,8 @@ GEM
     uglifier (2.1.2)
       execjs (>= 0.3.0)
       multi_json (~> 1.0, >= 1.0.2)
+    warden (1.2.3)
+      rack (>= 1.0)
     yahoo-finance (0.0.2)
     yahoofinance (1.2.2)
 
@@ -130,11 +147,13 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass (~> 2.3.2.1)
   coffee-rails (~> 3.2.1)
+  devise
   gon (= 3.0.5)
   jquery-rails
   market_beat
   pg
   rails (= 3.2.13)
+  rails-erd
   sass-rails (~> 3.2.3)
   sqlite3
   stock_quote

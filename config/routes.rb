@@ -1,4 +1,10 @@
 Commentsapp::Application.routes.draw do
+  
+
+  devise_for :users do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+
    # resources :remarks
 
 
@@ -17,6 +23,8 @@ Commentsapp::Application.routes.draw do
 
 
   resources :comments
+
+  root to: "portfolios#index"
 
   
 
