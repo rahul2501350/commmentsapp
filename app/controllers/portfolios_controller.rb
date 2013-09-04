@@ -1,10 +1,15 @@
 class PortfoliosController < ApplicationController
+
+  load_and_authorize_resource :user
+  load_and_authorize_resource :portfolio, :through => :user
+
   # GET /portfolios
   # GET /portfolios.json
   def index
 
     @user = User.find(params[:user_id])
     @portfolios = @user.portfolios.all
+    # authorize! :read, @portfolios
     
 
     

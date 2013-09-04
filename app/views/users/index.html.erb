@@ -17,8 +17,9 @@
 		<% end %>
 	</td>
     
-
+	<% if can? :update, @user %>	
      <td><%= link_to 'Show', '#' %></td> 
+    <% end %> 
      <td><%= link_to 'Edit', '#' %></td> 
      <td><%= link_to 'Destroy', '#' %></td> 
   </tr>
