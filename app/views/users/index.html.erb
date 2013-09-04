@@ -1,0 +1,26 @@
+<h1>Listing Users</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Portfolios</th>
+  </tr>
+
+<% @users.each do |user| %>
+    
+  <tr>
+    <td><%= user.email %></td>
+    <td>
+		<% user.portfolios.each do |p| %>
+		<br>
+		<%= p.name %>
+		<% end %>
+	</td>
+    
+
+     <td><%= link_to 'Show', '#' %></td> 
+     <td><%= link_to 'Edit', '#' %></td> 
+     <td><%= link_to 'Destroy', '#' %></td> 
+  </tr>
+<% end %>
+</table>
