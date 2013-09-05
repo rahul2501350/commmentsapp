@@ -243,4 +243,26 @@ Devise.setup do |config|
   # When using omniauth, Devise cannot automatically set Omniauth path,
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = "/my_engine/users/auth"
+
+
+
+
+  # Session routes for Authenticatable (default)
+ #     new_user_session GET    /accounts/sign_in                    {:controller=>"devise/sessions", :action=>"new"}
+ #         user_session POST   /accounts/sign_in                    {:controller=>"devise/sessions", :action=>"create"}
+ # destroy_user_session DELETE /accounts/sign_out                   {:controller=>"devise/sessions", :action=>"destroy"}
+
+# Password routes for Recoverable, if User model has :recoverable configured
+   #  new_user_password GET    /accounts/password/new(.:format)     {:controller=>"devise/passwords", :action=>"new"}
+   # edit_user_password GET    /accounts/password/edit(.:format)    {:controller=>"devise/passwords", :action=>"edit"}
+   #      user_password PUT    /accounts/password(.:format)         {:controller=>"devise/passwords", :action=>"update"}
+   #                    POST   /accounts/password(.:format)         {:controller=>"devise/passwords", :action=>"create"}
+
+# Confirmation routes for Confirmable, if User model has :confirmable configured
+# new_user_confirmation GET    /accounts/confirmation/new(.:format) {:controller=>"devise/confirmations", :action=>"new"}
+#     user_confirmation GET    /accounts/confirmation(.:format)     {:controller=>"devise/confirmations", :action=>"show"}
+#                       POST   /accounts/confirmation(.:format)     {:controller=>"devise/confirmations", :action=>"create"}
+
+#                              /accounts/edit
+
 end
