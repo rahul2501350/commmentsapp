@@ -43,7 +43,7 @@ Commentsapp::Application.routes.draw do
 
   resources :comments
 
-  root to: "users#index"
+  root to: "portfolios#index"
 
   
 
