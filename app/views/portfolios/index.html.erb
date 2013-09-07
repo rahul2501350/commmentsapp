@@ -60,16 +60,26 @@
 
 <div class="well" id="newportfolioform" style="display: none;"></div>
 
-<div class="well" id="showportfolio" >
-    <%= render "portfolios/show" %>
+<% unless @portfolio.nil? %>
+    <div class="well" id="showportfolio" >
+        <%= render "portfolios/show" %>    
+<% end %>
+    
     
 </div>
 <!-- <div class="btn" id="newtradebutton">show new trade form</div> -->
 <div class="well" id="newtrade" style="display: none;"></div>
 <!-- <div class="btn" id="showtradesbutton">show trades</div><p id="loading">Loading..</p> -->
-<div class="well" id="showtrades">
-    <%= render "trades/trades" %>
-</div>
+                            <% if false %>
+                                <div class="well" id="showtrades">
+                                  <% unless @trades.nil?  %>  
+                                    <%= render "trades/trades" %>
+                                  <% else %>
+                                    <h3>Create new trade!!</h3>   
+                                  <% end %>
+                                </div>
+                            <% end %>
+    
 
 
                 <% if false %>

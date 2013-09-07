@@ -28,7 +28,18 @@
 
 </table>
 <span class="btn"><%= link_to 'Trades', portfolio_trades_path(@portfolio), remote: true %></span>
-<span class="btn"><%= link_to 'Settings', edit_portfolio_path(@portfolio) %></span>
+<span class="btn"><%= link_to 'Settings', edit_user_portfolio_path(@user, @portfolio) %></span>
 <!-- <span class="btn"><%#= link_to 'Back', portfolios_path %></span> -->
-<span class="btn"><%= link_to 'Destroy', @portfolio, method: :delete, data: { confirm: 'Are you sure?' } %></span>
+<span class="btn"><%= link_to 'Destroy', user_portfolio_path(@user, @portfolio), method: :delete, data: { confirm: 'Are you sure?' } %></span>
 <span class="btn" id="hide1">Hide</span>
+
+  <br><br>
+                                <div class="well" id="showtrades">
+                                  <% if @trades.empty? %>
+                                    <H3> Make a trade </H3>
+                                  <% else %> 
+                                    <%= render "trades/trades" %>
+                                  <% end %>
+                                   
+                              
+                                </div>

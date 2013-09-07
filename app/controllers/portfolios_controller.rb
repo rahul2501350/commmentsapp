@@ -9,8 +9,16 @@ class PortfoliosController < ApplicationController
 
     @user = User.find(params[:user_id])
     @portfolios = @user.portfolios.all
-    @portfolio = @portfolios.first
-    @trades = @portfolio.trades.all
+
+    unless @portfolios.nil?
+      @portfolio = @portfolios.first  
+    end
+
+    
+      @trades = @portfolio.trades.all  
+    
+    
+    
     # authorize! :read, @portfolios
     
 
@@ -27,6 +35,7 @@ class PortfoliosController < ApplicationController
   def show
     @user = User.find(params[:user_id])
     @portfolio = @user.portfolios.find(params[:id])
+    @trades = @portfolio.trades.all
 
     respond_to do |format|
       format.html # show.html.erb
@@ -50,18 +59,20 @@ class PortfoliosController < ApplicationController
 
   # GET /portfolios/1/edit
   def edit
-    @portfolio = Portfolio.find(params[:id])
+    @user = User.find(params[:user_id])
+    @portfolio = @user.portfolios.find(params[:id])
   end
 
   # POST /portfolios
   # POST /portfolios.json
   def create
-    @portfolio = Portfolio.new(params[:portfolio])
+    @user = User.find(params[:user_id])
+    @portfolio = @user.portfolios.new(params[:portfolio])
 
     respond_to do |format|
       if @portfolio.save
-        format.html { redirect_to @portfolio, notice: 'Portfolio was successfully created.' }
-        format.json { render json: @portfolio, status: :created, location: @portfolio }
+        format.html { redirect_to user_portfolios_path(@user), notice: 'Portfolio was successfully created.' }
+        format.json { render json: @portfolio, status: :created, location: user_portfolio_path(@user, @portfolio) }
       else
         format.html { render action: "new" }
         format.json { render json: @portfolio.errors, status: :unprocessable_entity }
@@ -72,11 +83,12 @@ class PortfoliosController < ApplicationController
   # PUT /portfolios/1
   # PUT /portfolios/1.json
   def update
-    @portfolio = Portfolio.find(params[:id])
+    @user = User.find(params[:user_id])
+    @portfolio = @user.portfolios.find(params[:id])
 
     respond_to do |format|
       if @portfolio.update_attributes(params[:portfolio])
-        format.html { redirect_to @portfolio, notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to user_portfolio_path(@user, @portfolio), notice: 'Portfolio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -88,11 +100,12 @@ class PortfoliosController < ApplicationController
   # DELETE /portfolios/1
   # DELETE /portfolios/1.json
   def destroy
-    @portfolio = Portfolio.find(params[:id])
+    @user = User.find(params[:user_id])
+    @portfolio = @user.portfolios.find(params[:id])
     @portfolio.destroy
 
     respond_to do |format|
-      format.html { redirect_to portfolios_url }
+      format.html { redirect_to user_portfolios_url(@user) }
       format.json { head :no_content }
     end
   end
