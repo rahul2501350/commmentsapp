@@ -2,6 +2,9 @@ class TradesController < ApplicationController
 
   # GET /trades
   # GET /trades.json
+  load_and_authorize_resource :portfolio
+  load_and_authorize_resource :trade, :through => :portfolio
+ 
   def index
     # @trades = Trade.all
     @portfolio = Portfolio.find(params[:portfolio_id])

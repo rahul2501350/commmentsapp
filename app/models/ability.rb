@@ -34,9 +34,17 @@ class Ability
         u == user
     end    
 
-    can :index, Portfolio do |portfolio|
+    can :manage, Portfolio do |portfolio|
         portfolio.user == user
-    end    
+    end 
+
+    can :manage, Trade do |trade|
+        trade.portfolio.user == user
+    end
+
+    can :manage, Remark do |remark|
+        remark.trade.portfolio.user == user
+    end   
 
   end
 end

@@ -1,13 +1,18 @@
 Commentsapp::Application.routes.draw do
   
 
+
+  match '/about',    to: 'static_pages#about'
+  match '/contact',    to: 'static_pages#contact'
+  match '/faq',    to: 'static_pages#faq'
+
   get "static_pages/home"
 
-  get "static_pages/about"
+  # get "static_pages/about"
 
-  get "static_pages/contact"
+  # get "static_pages/contact"
 
-  get "static_pages/faq"
+  # get "static_pages/faq"
 
   get "users/index"
 
@@ -17,15 +22,23 @@ Commentsapp::Application.routes.draw do
 
   get "users/edit"
 
+  root to: "static_pages#home"
+
   devise_for :users, :path => 'accounts' do
     get '/accounts/sign_out' => 'devise/sessions#destroy'
   end
 
+  # match 'users/:id/portfolios' => 'portfolios#index', :as => :purchase
+
    # resources :remarks
 
-  resources :users do
+  resources :users, path: '' do
     resources :portfolios
   end 
+
+  # scope module: 'admin' do
+  #   resources :portfolios
+  # end  
 
   resources :trades do
     resources :remarks
@@ -43,7 +56,7 @@ Commentsapp::Application.routes.draw do
 
   resources :comments
 
-  root to: "portfolios#index"
+  
 
   
 

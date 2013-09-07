@@ -9,6 +9,8 @@ class PortfoliosController < ApplicationController
 
     @user = User.find(params[:user_id])
     @portfolios = @user.portfolios.all
+    @portfolio = @portfolios.first
+    @trades = @portfolio.trades.all
     # authorize! :read, @portfolios
     
 
@@ -23,7 +25,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
-    @portfolio = Portfolio.find(params[:id])
+    @user = User.find(params[:user_id])
+    @portfolio = @user.portfolios.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -35,7 +38,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   # GET /portfolios/new.json
   def new
-    @portfolio = Portfolio.new
+    @user = User.find(params[:user_id])
+    @portfolio = @user.portfolios.new
 
     respond_to do |format|
       format.html # new.html.erb
