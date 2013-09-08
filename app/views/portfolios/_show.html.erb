@@ -27,7 +27,11 @@
   </tr>
 
 </table>
-<span class="btn"><%= link_to 'Trades', portfolio_trades_path(@portfolio), remote: true %></span>
+                          <% if false %>
+                              <span class="btn"><%= link_to 'Trades', portfolio_trades_path(@portfolio), remote: true %></span>  
+                          <% end %>
+
+<span class="btn"><%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %></span>
 <span class="btn"><%= link_to 'Settings', edit_user_portfolio_path(@user, @portfolio) %></span>
 <!-- <span class="btn"><%#= link_to 'Back', portfolios_path %></span> -->
 <span class="btn"><%= link_to 'Destroy', user_portfolio_path(@user, @portfolio), method: :delete, data: { confirm: 'Are you sure?' } %></span>
@@ -35,11 +39,10 @@
 
   <br><br>
                                 <div class="well" id="showtrades">
-                                  <% if @trades.empty? %>
-                                    <H3> Make a trade </H3>
-                                  <% else %> 
+                                  <
+                                  
                                     <%= render "trades/trades" %>
-                                  <% end %>
+                                  
                                    
                               
                                 </div>

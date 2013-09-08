@@ -10,13 +10,15 @@ class PortfoliosController < ApplicationController
     @user = User.find(params[:user_id])
     @portfolios = @user.portfolios.all
 
-    unless @portfolios.nil?
+    unless @portfolios.first == nil
       @portfolio = @portfolios.first  
+
+        unless @portfolio.trades.all.empty?
+          @trades = @portfolio.trades.all  
+        end
     end
 
-    
-      @trades = @portfolio.trades.all  
-    
+
     
     
     # authorize! :read, @portfolios
@@ -88,7 +90,7 @@ class PortfoliosController < ApplicationController
 
     respond_to do |format|
       if @portfolio.update_attributes(params[:portfolio])
-        format.html { redirect_to user_portfolio_path(@user, @portfolio), notice: 'Portfolio was successfully updated.' }
+        format.html { redirect_to user_portfolios_path(@user), notice: 'Portfolio was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

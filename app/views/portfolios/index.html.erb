@@ -60,7 +60,7 @@
 
 <div class="well" id="newportfolioform" style="display: none;"></div>
 
-<% unless @portfolio.empty? %>
+<% unless @portfolios.first.nil? %>
     <div class="well" id="showportfolio" >
         <%= render "portfolios/show" %>    
 <% end %>

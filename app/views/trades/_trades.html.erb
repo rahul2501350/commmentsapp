@@ -1,6 +1,9 @@
-<h1>Listing trades (<%= @trades.first.portfolio.name %>)</h1>
 
-<table class="tradetable">
+
+<h1>Listing trades (<%= @portfolio.name %>)</h1>
+        
+<% unless @portfolio.trades.all.empty? %>
+        <table class="tradetable">
   <tr>
     <!-- <th>Portfolio</th> -->
     <th>Buy date</th>
@@ -73,9 +76,17 @@
     </div>  
 <% end %>
 </table>
+<% else %>
+    <h3>Make a new trade!!</h3>
+<% end %>
+
+
 
 <br />
-<span class="btn"><%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %></span>
+                    <% if false %>
+                        <span class="btn"><%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %></span>                
+                    <% end %>
+        
 <span class="btn" id="hide1">Hide</span>
 
 
