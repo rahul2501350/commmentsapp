@@ -185,6 +185,7 @@ heroku keys:add ---> to add ssh key to heroku
 		# heroku fork -a sourceapp targetapp  -----> to make a duplicate app
 		# git remote add forked git@heroku.com:targetapp.git    ------->  adding a git remote for target app (giving name 'forked', it can be any other name also.)
 		# git push forked master   ------>  deploying target app
+		# git push forked devise:master  ----> deploy target app with diff branch
 
 
 

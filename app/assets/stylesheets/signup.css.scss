@@ -1,3 +1,56 @@
 .signupbackground{
 	background-image: url(/assets/nyse2.jpg);
+	padding: 10px;
+	padding-bottom: 30px;
+}
+
+.homebox{
+	background-color: rgba(0, 0, 0, .8);
+	padding: 25px;
+	border-radius: 6px;
+	display: inline-block;
+	width: 55%;
+
+
+
+}
+
+.prelaunchlogo{
+	display: block;
+	width: 100%;
+}
+
+.prelaunchemail{
+	display: block;
+}
+
+#prelaunchcontainer{
+	left: 25%;
+}
+
+#prelaunchcontainer1{
+	display: inline-block;
+	margin: 10% 15%;
+}
+
+.signup-box{
+	margin: 20px;
+}
+
+.launch-content h2{
+	color: white;
+	text-align: center;
+	width: 100%;
+	font-weight: normal;
+
+}
+.launch-content h4{
+	color: white;
+	text-align: center;
+	width: 100%;
+	font-weight: normal;
+}
+
+.launch-team{
+	display: none;
 }
