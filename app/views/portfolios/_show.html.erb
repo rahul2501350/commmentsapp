@@ -37,12 +37,8 @@
 <span class="btn"><%= link_to 'Destroy', user_portfolio_path(@user, @portfolio), method: :delete, data: { confirm: 'Are you sure?' } %></span>
 <span class="btn" id="hide1">Hide</span>
 
-  <br><br>
-                                <div class="well" id="showtrades">
-                                  <
-                                  
-                                    <%= render "trades/trades" %>
-                                  
-                                   
-                              
-                                </div>
+<br><br>
+
+<div class="well" id="showtrades">
+  <%= render "trades/trades" %>
+</div>

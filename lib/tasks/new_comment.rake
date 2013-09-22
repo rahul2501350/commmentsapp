@@ -29,9 +29,13 @@
 
 	  	r.save
 	    # @trade.buy_price = @stock2.last
-	end
+	  end
   end
 
+
+
+
+  
   task portfolioid: :environment do
   	Trade.all.each do |t|
   		t.portfolio_id = 1

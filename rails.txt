@@ -178,6 +178,14 @@ $ heroku run:detached rake db:migrate
 
 heroku keys:add ---> to add ssh key to heroku
 
+		--------------------------
+
+		--- Staging Environment -----
+
+		# heroku fork -a sourceapp targetapp  -----> to make a duplicate app
+		# git remote add forked git@heroku.com:targetapp.git    ------->  adding a git remote for target app (giving name 'forked', it can be any other name also.)
+		# git push forked master   ------>  deploying target app
+
 
 
 -----------------SUBLIME--------------------------

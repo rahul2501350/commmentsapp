@@ -5,6 +5,7 @@ Commentsapp::Application.routes.draw do
   match '/about',    to: 'static_pages#about'
   match '/contact',    to: 'static_pages#contact'
   match '/faq',    to: 'static_pages#faq'
+  match '/signup', to: 'static_pages#signup'
 
   get "static_pages/home"
 
