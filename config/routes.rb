@@ -25,7 +25,7 @@ Commentsapp::Application.routes.draw do
 
 
 
-  root to: "static_pages#signup"
+  root to: "static_pages#home"
 
   devise_for :users, :path => 'accounts' do
     get '/accounts/sign_out' => 'devise/sessions#destroy'
