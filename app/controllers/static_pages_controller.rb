@@ -1,8 +1,7 @@
 class StaticPagesController < ApplicationController
   def home
   	@user = current_user
-  	
-
+    render :layout => "homepagelayout" and return
   	respond_to do |format|
       format.html # index.html.erb
       format.js
