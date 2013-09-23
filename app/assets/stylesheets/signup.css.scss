@@ -10,6 +10,7 @@
 	border-radius: 6px;
 	display: inline-block;
 	width: 55%;
+	min-width: 500px;
 
 
 
@@ -63,4 +64,7 @@
 .launch-contact{
 	display: none;
 	margin: 20px;
+}
+.launch-signup-email{
+	width: 60%;
 }
