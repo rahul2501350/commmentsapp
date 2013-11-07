@@ -162,7 +162,7 @@ git push ----> Since we have already done one push (Section 1.3.4), on most syst
 
 ----------DEPLOYING  HEROKU------------
 
-heroku login ----> login heroku (rahul2501350@gmail.com, 7442324594)
+heroku login ----> login heroku 
 heroku create ----> creates new app and gives subdomain
 git push heroku master -----> push app to heroku
 	git push heroku ---> afterwards push
