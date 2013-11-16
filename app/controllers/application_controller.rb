@@ -9,4 +9,8 @@ class ApplicationController < ActionController::Base
   	user_portfolios_path(current_user)
   end
 
+  def current_user_id
+  	return current_user.id
+  end
+
 end

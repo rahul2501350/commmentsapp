@@ -1,0 +1,19 @@
+<h1>About Us!!</h1>
+
+
+<%= a_var %>
+
+<% @s = "22" %>
+
+<div id="hometest">
+	jstest button
+</div>
+
+
+<script>
+	 window.abc= <%= @s + @a_var %>;  
+</script>
+
+<%= javascript_tag do %>  
+  window.abc= <%= @s + @a_var %>;  
+<% end %> 

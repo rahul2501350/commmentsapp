@@ -158,7 +158,16 @@ $( document ).ready(function() {
 
         //     $(this).next().toggle('slow');       
         // });
+        
 
+            $(document).on("click", "#about", function(){
+            $.ajax({
+              type: "GET",
+              url: "/about",
+              dataType: "script"
+            });
+            return false;
+         });
 
         
 

@@ -6,6 +6,7 @@ html {
 
 body {
   padding-top: 60px;
+  background-color: #E79049;
 }
 
 section {
@@ -58,11 +59,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid grey;
-  color: $grayLight;
+  color: #0088CC;
   a {
-    color: $gray;
+    color: #0088CC;
     &:hover { 
-      color: $grayDarker;
+      color: #0088CC;
     }
   }  
   small { 
@@ -123,11 +124,25 @@ td{
   margin-top: 50px;
 }
 
-.home-signup-box{
-  background-color: rgba(0, 0, 0, .8);
-  padding: 25px;
-  border-radius: 6px;
-  display: inline-block;
-  width: 55%;
-  right: 10%;
+
+.home-signup-box {
+background-color: rgba(0, 0, 0, 0.8);
+border-radius: 6px;
+display: inline-block;
+margin-left: 47%;
+margin-right: 0;
+margin-top: 40px;
+min-width: 600px;
+padding: 25px;
+width: 55%;
+
+}
+
+.home-signup-box .control-label{
+  color: white;
+}
+
+.home-signup-box legend{
+  color: white;
+  font-family: sans-serif;
 }

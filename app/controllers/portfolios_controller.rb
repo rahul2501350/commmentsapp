@@ -7,7 +7,9 @@ class PortfoliosController < ApplicationController
   # GET /portfolios.json
   def index
 
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
+    @user = current_user
+    # @user = User.find(params[:id] == -1 ? current_user_id : params[:id])
     @portfolios = @user.portfolios.all
 
     unless @portfolios.first == nil
@@ -35,7 +37,9 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/1
   # GET /portfolios/1.json
   def show
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
+    @user = current_user
+    @user.id = current_user.id
     @portfolio = @user.portfolios.find(params[:id])
     @trades = @portfolio.trades.all
 
@@ -49,7 +53,8 @@ class PortfoliosController < ApplicationController
   # GET /portfolios/new
   # GET /portfolios/new.json
   def new
-    @user = User.find(params[:user_id])
+    # @user = User.find(params[:user_id])
+    @user = current_user
     @portfolio = @user.portfolios.new
 
     respond_to do |format|
@@ -117,4 +122,7 @@ class PortfoliosController < ApplicationController
       format.js
     end  
   end
+
+
+
 end

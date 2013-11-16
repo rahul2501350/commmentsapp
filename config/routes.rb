@@ -24,12 +24,25 @@ Commentsapp::Application.routes.draw do
   get "users/edit"
 
 
+match "portfolios" => 'portfolios#index', :defaults => { :id => 1 }
 
-  root to: "static_pages#home"
+  authenticated :user do
+   root :to => "static_pages#faq"
+  end
+
+  root :to => "static_pages#home"
+
+  # namespace :users do
+  #  root to: "static_pages#faq"
+  # end
+
+  # root to: "static_pages#home"
 
   devise_for :users, :path => 'accounts' do
     get '/accounts/sign_out' => 'devise/sessions#destroy'
   end
+
+
 
   # match 'users/:id/portfolios' => 'portfolios#index', :as => :purchase
 
@@ -39,6 +52,10 @@ Commentsapp::Application.routes.draw do
     resources :portfolios
   end 
 
+
+  scope ':user_id' do
+    resources :portfolios
+  end
   # scope module: 'admin' do
   #   resources :portfolios
   # end  
