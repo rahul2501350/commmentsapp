@@ -27,7 +27,7 @@ Commentsapp::Application.routes.draw do
 match "portfolios" => 'portfolios#index', :defaults => { :id => 1 }
 
   authenticated :user do
-   root :to => "static_pages#faq"
+   root :to => 'users#show'
   end
 
   root :to => "static_pages#home"
