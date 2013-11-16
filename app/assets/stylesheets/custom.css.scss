@@ -6,9 +6,13 @@ html {
 
 body {
   padding-top: 60px;
-  background-color: #E79049;
+  background-image: url(bg.png);
+
 }
 
+#pagecontent{
+  min-height: 500px;  
+}
 section {
   overflow: auto;
 }
@@ -26,6 +30,7 @@ h1 {
   letter-spacing: -2px;
   margin-bottom: 30px;
   text-align: center;
+  color: white;
 }
 
 h2 {
@@ -59,11 +64,11 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid grey;
-  color: #0088CC;
+  color: white;
   a {
-    color: #0088CC;
+    color: white;
     &:hover { 
-      color: #0088CC;
+      color: white;
     }
   }  
   small { 
@@ -135,8 +140,9 @@ margin-top: 40px;
 min-width: 600px;
 padding: 25px;
 width: 55%;
-
+border: 5px solid white;
 }
+
 
 .home-signup-box .control-label{
   color: white;
@@ -145,4 +151,32 @@ width: 55%;
 .home-signup-box legend{
   color: white;
   font-family: sans-serif;
+}
+
+.home-signin-box {
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 6px;
+  display: inline-block;
+  margin:4% 20% 4% 20%;
+  margin-top: 40px;
+  min-width: 600px;
+  padding: 25px;
+  width: 55%;
+  border: 5px solid white;
+  color: white;
+}
+
+.home-signin-box legend{
+  color: white;
+  text-align: center;
+  font-family: sans-serif;
+}
+
+.home-signin-box #user_remember_me {
+  margin-bottom: 6px;
+  margin-left: 180px;
+}
+
+.home-signin-box .checkbox-label {
+  display: inline-block;
 }

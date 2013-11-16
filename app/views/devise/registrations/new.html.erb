@@ -1,18 +1,46 @@
-<h2>Sign up</h2>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+ 
+<div class="home-signup">
+	<div class="home-signin-box">
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name), html: {class: "form-horizontal"}) do |f| %>
+		  <%= devise_error_messages! %>
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+		  <fieldset>
+		  	<legend>Sign Up!</legend>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+			  <div class="control-group">
+			  	<%= f.label :email, :hint => "Field hint", class: "control-label" %>
+			  	<div class="controls">
+			  		<%= f.email_field :email, :autofocus => true, class: "input-xlarge" %>
+			  	</div>
+			  </div>
+			  
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+			  <div class="control-group">
+			  	<%= f.label :password, class: "control-label"%>
+			  	<div class="controls">
+			  		<%= f.password_field :password, class: "input-xlarge" %>
+			  	</div>
+			  </div>
+			  	
+			  <div class="control-group">
+			  	<%= f.label :password_confirmation,"Password", class: "control-label"%>
+			  	<div class="controls">
+			  		<%= f.password_field :password_confirmation, class: "input-xlarge" %>
+			  	</div>
+			  </div>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
+			  <div  class="control-group">
+			  	<div >
+			  		<%= f.submit "Sign up", class: "btn btn-success" %>	
+			  	</div>			  	
+			  </div>
+		  </fieldset>	  
+		<% end %>
+<!-- 		<div class="devicelinks">
+			<%= render "devise/shared/links" %>
+		</div> -->
+		
+	</div>		
+</div>
 
-<%= render "devise/shared/links" %>
