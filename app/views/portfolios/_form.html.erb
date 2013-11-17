@@ -1,5 +1,10 @@
-<%= form_for ([@user, @portfolio]), html: {class: "form-horizontal"} do |f| %>
-  <% if @portfolio.errors.any? %>
+
+<div class="home-signup">
+  <div class="home-signin-box">
+    <%= form_for([@user, @portfolio], html: {class: "form-horizontal"}) do |f| %>
+
+
+      <% if @portfolio.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
 
@@ -10,58 +15,90 @@
       </ul>
     </div>
   <% end %>
-<!-- name -->
-  <div class="control-group">
-    <%= f.label :name, class: "control-label" %><br />
+  
+
+<%= link_to 'Show', @portfolio %> |
+<%= link_to 'Back', portfolios_path %>
+    <fieldset>
+
+      <legend>Settings of Portfolio  "<%= @portfolio.name.capitalize  %>" </legend>
+
+      
+      <div class="control-group">
+    <%= f.label :name, class: "control-label" %>
     <div class="controls">
-      <%= f.text_field :name %>
-    </div>
+      <%= f.text_field :name,class: "input-xlarge" %>
+  </div>
     
   </div>
   <!-- Capital -->
   <div class="control-group">
-    <%= f.label :capital, class: "control-label" %><br />
-    <div class="control-label">
-      <%= f.text_field :capital %>
+    <%= f.label :capital, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :capital, placeholder: "1000000", class: "input-xlarge" %>
     </div>
     
   </div>
 <!-- Brokerage -->
   <div class="control-group">
-    <%= f.label :brokerage %><br />
-    <%= f.text_field :brokerage %>
+    <%= f.label :brokerage,"Brokerage (%)", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :brokerage, placeholder: "0.5", class: "input-xlarge" %>      
+    </div>
   </div>
+
 <!--  -->
   <div class="control-group">
-    <%= f.label :taxslipage, 'Tax + Slipage' %><br />
-    <%= f.text_field :taxslipage %>
+    <%= f.label :taxslipage, 'Tax + Slipage (%)', class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :taxslipage,placeholder: "0.25",  class: "input-xlarge" %>
+    </div> 
   </div>
 
   <div class="control-group">
-    <%= f.label :totalextraround, 'Total Extra on round trip' %><br />
-    <%= f.text_field :totalextraround %>
+    <%= f.label :totalextraround, 'Total Extra on round trip (%)', class: "control-label" %>
+    <div class="controls">
+     <%= f.text_field :totalextraround,placeholder: "1.5",  class: "input-xlarge" %>     
+    </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :mriskstock, 'Max risk on Stock' %><br />
-    <%= f.text_field :mriskstock %>
+    <%= f.label :mriskstock, 'Max risk on Stock (%)', class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :mriskstock,placeholder: "10",  class: "input-xlarge" %>      
+    </div>
   </div>
 
   <div class="control-group">
-    <%= f.label :mriskcapitals, 'Max risk on Capital' %><br />
-    <%= f.text_field :mriskcapital %>
+    <%= f.label :mriskcapitals, 'Max risk on Capital (%)', class: "control-label" %>
+    <div class="controls">
+       <%= f.text_field :mriskcapital,placeholder: "1",  class: "input-xlarge" %>     
+    </div>
+
   </div>
 
-  <div class="control-groupfield">
-    <%= f.label :mcats, 'Max Capital Allocated to Stock' %><br />
-    <%= f.text_field :mcats %>
+  <div class="control-group">
+    <%= f.label :mcats, 'Max Capital Allocated to Stock (%)', class: "control-label" %>
+    <div class="controls">
+     <%= f.text_field :mcats,placeholder: "10",  class: "input-xlarge" %>     
+    </div>
+
   </div>
 
 
 
 
-  <div class="actions">
-    <%= f.submit %>
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Update Portfolio", class: "btn btn-success" %>
+    </div>
+    
   </div>
   <span class="btn" id="hide">Hide</span>
-<% end %>
+
+
+
+    </fieldset>
+    <% end %>
+  </div>
+</div>
