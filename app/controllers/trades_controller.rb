@@ -12,8 +12,8 @@ class TradesController < ApplicationController
    
 
 
-     symbol = "LSE.L"
-     @quote = YahooFinance::get_quotes(YahooFinance::StandardQuote, symbol)[symbol]
+     # symbol = "LSE.L"
+     # @quote = YahooFinance::get_quotes(YahooFinance::StandardQuote, symbol)[symbol]
 
     # @data = YahooFinance.quotes(["BVSP", "USDJPY=X"], [:ask, :bid, :last_trade_date])
 
@@ -63,7 +63,8 @@ class TradesController < ApplicationController
   def create
     @portfolio = Portfolio.find(params[:portfolio_id])
     @trade = @portfolio.trades.new(params[:trade])
-    @stock2 = StockQuote::Stock.quote("#{params[:trade][:stock]}")
+    # @stock2 = StockQuote::Stock.quote("#{params[:trade][:stock]}")
+    
     buy_date_formatted = DateTime.strptime(params[:trade][:buy_date], "%d/%m/%Y").to_date
     @trade.buy_date = buy_date_formatted
     
@@ -87,8 +88,8 @@ class TradesController < ApplicationController
 
     # @trade = Trade.new(params[:trade])
     @trade.assign_attributes(params[:trade])
-    @stock2 = StockQuote::Stock.quote("#{params[:trade][:stock]}")
-    @trade.buy_price = @stock2.last
+    # @stock2 = StockQuote::Stock.quote("#{params[:trade][:stock]}")
+    # @trade.buy_price = @stock2.last
 
     respond_to do |format|
       # if @trade.update_attributes(params[:trade])

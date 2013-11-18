@@ -52,10 +52,12 @@ $( document ).ready(function() {
             $( "#loading" ).hide();
         });
 
-        $('#datepicker').datepicker({
+        $(document).on('click', '#datepicker', function(event){
+          $('#datepicker').datepicker({
             format: "dd/mm/yyyy",
             orientation: "top auto",
             todayHighlight: true
+          });
         });
 
         $('#newtradebutton').click(function(){
