@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
+//= require bootstrap-datepicker
 //= require_tree .
 
 $( document ).ready(function() {
@@ -43,6 +44,19 @@ $( document ).ready(function() {
     //     return false;
     // });
         // $("#loading").hide();
+
+        $( document ).ajaxStart(function() {
+            $( "#loading" ).show();
+        });
+        $( document ).ajaxStop(function() {
+            $( "#loading" ).hide();
+        });
+
+        $('#datepicker').datepicker({
+            format: "dd/mm/yyyy",
+            orientation: "top auto",
+            todayHighlight: true
+        });
 
         $('#newtradebutton').click(function(){
             $.ajax({

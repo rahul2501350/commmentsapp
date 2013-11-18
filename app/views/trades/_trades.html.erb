@@ -41,8 +41,13 @@
             <% end %>
 
                    
-        <!-- <td> <%#= trade.portfolio.name %></td> -->     <!-- Portfolio -->  
-        <td><%= trade.buy_date.to_formatted_s(:short) %></td>  <!-- buy date -->
+        <!-- <td> <%#= trade.portfolio.name %></td> -->     <!-- Portfolio --> 
+            <% unless trade.buy_date.nil? %>
+        <td><%= trade.buy_date.to_formatted_s(:short) %></td>
+            <% else %>
+        <td>No date</td>       
+             <% end %> 
+          <!-- buy date -->
         <td><%= trade.stock %></td>  <!-- Script -->
         <td><%= trade.qty %></td> <!-- qty -->
         <td><%= trade.buy_price %></td>  <!-- buy price -->

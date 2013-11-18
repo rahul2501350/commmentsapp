@@ -57,7 +57,9 @@
 
 
 
-
+                                    <div id="loading" style="display: none;">
+                                        <h1>loading...</h1>
+                                    </div>
 <div class="well" id="newportfolioform" style="display: none;"></div>
 
 <% unless @portfolios.first.nil? %>
@@ -72,6 +74,7 @@
 <!-- <div class="btn" id="showtradesbutton">show trades</div><p id="loading">Loading..</p> -->
                             <% if false %>
                                 <div class="well" id="showtrades">
+
                                   <% unless @trades.nil?  %>  
                                     <%= render "trades/trades" %>
                                   <% else %>

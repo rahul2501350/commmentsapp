@@ -1,0 +1,104 @@
+
+<div class="home-signup">
+  <div class="home-signin-box">
+    <%= form_for([@user, @portfolio], html: {class: "form-horizontal"}) do |f| %>
+
+
+      <% if @portfolio.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+      <ul>
+      <% @portfolio.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+
+
+<%= link_to 'Back', portfolios_path %>
+    <fieldset>
+
+      <legend>New Portfolio </legend>
+
+      
+      <div class="control-group">
+    <%= f.label :name, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :name,class: "input-xlarge" %>
+  </div>
+    
+  </div>
+  <!-- Capital -->
+  <div class="control-group">
+    <%= f.label :capital, class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :capital, placeholder: "1000000", class: "input-xlarge" %>
+    </div>
+    
+  </div>
+<!-- Brokerage -->
+  <div class="control-group">
+    <%= f.label :brokerage,"Brokerage (%)", class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :brokerage, placeholder: "0.5", class: "input-xlarge" %>      
+    </div>
+  </div>
+
+<!--  -->
+  <div class="control-group">
+    <%= f.label :taxslipage, 'Tax + Slipage (%)', class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :taxslipage,placeholder: "0.25",  class: "input-xlarge" %>
+    </div> 
+  </div>
+
+  <div class="control-group">
+    <%= f.label :totalextraround, 'Total Extra on round trip (%)', class: "control-label" %>
+    <div class="controls">
+     <%= f.text_field :totalextraround,placeholder: "1.5",  class: "input-xlarge" %>     
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :mriskstock, 'Max risk on Stock (%)', class: "control-label" %>
+    <div class="controls">
+      <%= f.text_field :mriskstock,placeholder: "10",  class: "input-xlarge" %>      
+    </div>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :mriskcapitals, 'Max risk on Capital (%)', class: "control-label" %>
+    <div class="controls">
+       <%= f.text_field :mriskcapital,placeholder: "1",  class: "input-xlarge" %>     
+    </div>
+
+  </div>
+
+  <div class="control-group">
+    <%= f.label :mcats, 'Max Capital Allocated to Stock (%)', class: "control-label" %>
+    <div class="controls">
+     <%= f.text_field :mcats,placeholder: "10",  class: "input-xlarge" %>     
+    </div>
+
+  </div>
+
+
+
+
+  <div class="control-group">
+    <div class="controls">
+      <%= f.submit "Update Portfolio", class: "btn btn-success" %>
+    </div>
+    
+  </div>
+  <span class="btn" id="hide">Hide</span>
+
+
+
+    </fieldset>
+    <% end %>
+  </div>
+</div>

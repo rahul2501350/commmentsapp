@@ -75,6 +75,13 @@ class PortfoliosController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @portfolio = @user.portfolios.new(params[:portfolio])
+    @portfolio.capital = 1000000
+    @portfolio.brokerage = 0.5
+    @portfolio.taxslipage = 0.25
+    @portfolio.totalextraround = 1.5
+    @portfolio.mriskstock = 10
+    @portfolio.mriskcapital = 1
+    @portfolio.mcats = 10
 
     respond_to do |format|
       if @portfolio.save
