@@ -10,6 +10,21 @@ class StocksController < ApplicationController
     end
   end
 
+  def list
+    if params[:term]
+      like= "%".concat(params[:term].concat("%"))
+      stocks = Stock.where("name like ?", like)
+    else
+      stocks = Stock.all
+    end
+    list = stocks.map {|u| Hash[ id: u.id, label: u.symbol, name: u.fullname]}
+    # render json: list
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: list }
+    end
+  end
+
   # GET /stocks/1
   # GET /stocks/1.json
   def show

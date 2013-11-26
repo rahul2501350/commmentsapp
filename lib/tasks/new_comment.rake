@@ -32,6 +32,9 @@
 	  end
   end
 
+task greet: :environment do
+   puts "Hello world"
+end
 
 
 
@@ -44,6 +47,35 @@
   end
 
   task fillstockdata: :environment do
-    
+
+    require 'csv'
+
+      csv_text = File.read('lib/tasks/nse_sym_name_sector.csv')
+      csv = CSV.parse(csv_text, :headers => true)
+      n = 0 
+      csv.each do |row|   
+        n=n+1
+        symbol_csv = row['SYMBOL']
+        fullname_csv = row['FULLNAME']
+        sector_csv = row['SECTOR']
+
+        # puts "#{n}----- #{row['SYMBOL']}----- #{row['FULLNAME']} -------- #{row['SECTOR']}"
+
+        s = Stock.new
+        s.symbol = symbol_csv
+        s.fullname = fullname_csv
+        s.sector = sector_csv
+        s.save
+
+        puts "#{n}-----saved---- #{symbol_csv}"
+      end  
+  
+  end
+
+  task destroystocks: :environment do
+    stocks = Stock.all
+    stocks.each do |stock|
+      stock.destroy
+    end
   end
   

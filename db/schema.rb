@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130902102937) do
+ActiveRecord::Schema.define(:version => 20131126163154) do
 
   create_table "comments", :force => true do |t|
     t.string   "name"
@@ -46,9 +46,9 @@ ActiveRecord::Schema.define(:version => 20130902102937) do
   end
 
   create_table "stocks", :force => true do |t|
-    t.string   "name"
-    t.decimal  "quote"
-    t.decimal  "lastp"
+    t.string   "symbol"
+    t.string   "fullname"
+    t.string   "sector"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
