@@ -4,14 +4,6 @@ class StocksController < ApplicationController
   def index
     @stocks = Stock.all
 
-    @stock = MarketBeat.last_trade_real_time :AAPL
-    @stock1 = StockQuote::Stock.quote("#{Stock.first.name}")
-
-    stockd = Stock.first
-    stockd.quote = StockQuote::Stock.quote("#{stockd.name}").last
-    stockd.save
-
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @stocks }

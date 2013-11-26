@@ -41,5 +41,9 @@
   		t.portfolio_id = 1
   		t.save
   	end	
-  end	
+  end
+
+  task fillstockdata: :environment do
+    
+  end
   

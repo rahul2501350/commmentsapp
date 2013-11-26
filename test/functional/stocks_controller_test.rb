@@ -18,7 +18,7 @@ class StocksControllerTest < ActionController::TestCase
 
   test "should create stock" do
     assert_difference('Stock.count') do
-      post :create, stock: { lastp: @stock.lastp, name: @stock.name, quote: @stock.quote }
+      post :create, stock: { fullname: @stock.fullname, sector: @stock.sector, symbol: @stock.symbol }
     end
 
     assert_redirected_to stock_path(assigns(:stock))
@@ -35,7 +35,7 @@ class StocksControllerTest < ActionController::TestCase
   end
 
   test "should update stock" do
-    put :update, id: @stock, stock: { lastp: @stock.lastp, name: @stock.name, quote: @stock.quote }
+    put :update, id: @stock, stock: { fullname: @stock.fullname, sector: @stock.sector, symbol: @stock.symbol }
     assert_redirected_to stock_path(assigns(:stock))
   end
 

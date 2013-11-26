@@ -2,6 +2,9 @@ Commentsapp::Application.routes.draw do
   
 
 
+  resources :stocks
+
+
   match '/about',    to: 'static_pages#about'
   match '/contact',    to: 'static_pages#contact'
   match '/faq',    to: 'static_pages#faq'
@@ -70,9 +73,6 @@ match "portfolios" => 'portfolios#index', :defaults => { :id => 1 }
     resources :trades
        # resources :remarks
   end  
-
-  resources :stocks
-
 
   resources :comments
 
