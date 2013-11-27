@@ -10,20 +10,6 @@ class StocksController < ApplicationController
     end
   end
 
-  def list
-    if params[:term]
-      like= "%".concat(params[:term].concat("%"))
-      stocks = Stock.where("name like ?", like)
-    else
-      stocks = Stock.all
-    end
-    list = stocks.map {|u| Hash[ id: u.id, label: u.symbol, name: u.fullname]}
-    # render json: list
-      respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: list }
-    end
-  end
 
   # GET /stocks/1
   # GET /stocks/1.json
@@ -94,5 +80,40 @@ class StocksController < ApplicationController
       format.html { redirect_to stocks_url }
       format.json { head :no_content }
     end
+  end
+
+
+
+
+  def list
+
+=begin
+    @stocks = Stock.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @stocks }
+    end
+=end
+
+
+
+
+
+
+    if params[:term]
+      like= "%".concat(params[:term].concat("%"))
+      stocks = Stock.where("fullname like ? OR symbol like ?", like, like)
+    else
+      stocks = Stock.all
+    end
+    list = stocks.map {|u| Hash[ id: u.id, value: u.symbol, label: u.fullname]}
+    # render json: list
+      respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: list }
+    end
+
+
   end
 end

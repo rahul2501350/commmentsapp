@@ -3,6 +3,7 @@ Commentsapp::Application.routes.draw do
 
 
   resources :stocks
+  match '/list',    to: 'stocks#list'
 
 
   match '/about',    to: 'static_pages#about'
