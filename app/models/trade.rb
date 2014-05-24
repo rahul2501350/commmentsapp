@@ -54,9 +54,18 @@ class Trade < ActiveRecord::Base
 
 
   def last_price
-  	StockQuote::Stock.quote("#{self.stock}")[0].to_f
+  	# StockQuote::Stock.quote("#{self.stock}")[0].to_f
    
     # MarketBeat.last_trade_real_time "#{self.stock}".to_sym
+
+
+    begin
+      a = Nse1::Stock.new(self.stock)
+      return a.last
+    rescue
+      return "0.00"
+    end
+
   end
 
   def last_amount

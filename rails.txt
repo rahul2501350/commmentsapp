@@ -117,6 +117,7 @@ GIT----------------------------
 	git log ----> 							to see the commit messages, type "q" to quit.
 	git checkout -f ---> 					we can still undo the changes easily by having Git check out the previous commit with the checkout command (and a -f flag to force overwriting the current changes)
 	git checkout master ---> come back to master branch
+	git rm $(git ls-files --deleted) ----> to remove deleted files from git repo
 
 ------------- CREATING NEW REPO FROM COMMAND LINE ----------------
 

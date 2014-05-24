@@ -11,7 +11,7 @@ class PortfoliosController < ApplicationController
     @user = current_user
     # @user = User.find(params[:id] == -1 ? current_user_id : params[:id])
     @portfolios = @user.portfolios.all
-
+    @portfolio_new = @user.portfolios.new
     unless @portfolios.first == nil
       @portfolio = @portfolios.first  
 
@@ -55,7 +55,7 @@ class PortfoliosController < ApplicationController
   def new
     # @user = User.find(params[:user_id])
     @user = current_user
-    @portfolio = @user.portfolios.new
+    @portfolio_new = @user.portfolios.new
 
     respond_to do |format|
       format.html # new.html.erb

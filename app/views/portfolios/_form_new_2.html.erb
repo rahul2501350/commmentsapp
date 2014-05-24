@@ -1,0 +1,109 @@
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">New Portfolio</h4>
+      </div>
+      <div class="modal-body">
+
+                    <%= form_for([@user, @portfolio_new], html: {class: "form-horizontal"}) do |f| %>
+
+                    <% unless @portfolios.first.nil? %>
+                                           <% if @portfolio.errors.any? %>
+                    <div id="error_explanation">
+                      <h2><%= pluralize(@portfolio.errors.count, "error") %> prohibited this portfolio from being saved:</h2>
+
+                      <ul>
+                      <% @portfolio.errors.full_messages.each do |msg| %>
+                        <li><%= msg %></li>
+                      <% end %>
+                      </ul>
+                    </div>
+                  <% end %>
+                    <% end %>
+
+                  
+
+
+
+                    <fieldset>
+
+
+
+                      
+                      <div class="control-group">
+                    <%= f.label :name, class: "control-label" %>
+                    <div class="controls">
+                      <%= f.text_field :name,class: "input-xlarge" %>
+                  </div>
+                    
+                  </div>
+                  <!-- Capital -->
+                  <div class="control-group">
+                    <%= f.label :capital, class: "control-label" %>
+                    <div class="controls">
+                      <%= f.text_field :capital, placeholder: "1000000", class: "input-xlarge" %>
+                    </div>
+                    
+                  </div>
+                <!-- Brokerage -->
+                  <div class="control-group">
+                    <%= f.label :brokerage,"Brokerage (%)", class: "control-label" %>
+                    <div class="controls">
+                      <%= f.text_field :brokerage, placeholder: "0.5", class: "input-xlarge" %>      
+                    </div>
+                  </div>
+
+                <!--  -->
+                  <div class="control-group">
+                    <%= f.label :taxslipage, 'Tax + Slipage (%)', class: "control-label" %>
+                    <div class="controls">
+                      <%= f.text_field :taxslipage,placeholder: "0.25",  class: "input-xlarge" %>
+                    </div> 
+                  </div>
+
+                  <div class="control-group">
+                    <%= f.label :totalextraround, 'Total Extra on round trip (%)', class: "control-label" %>
+                    <div class="controls">
+                     <%= f.text_field :totalextraround,placeholder: "1.5",  class: "input-xlarge" %>     
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <%= f.label :mriskstock, 'Max risk on Stock (%)', class: "control-label" %>
+                    <div class="controls">
+                      <%= f.text_field :mriskstock,placeholder: "10",  class: "input-xlarge" %>      
+                    </div>
+                  </div>
+
+                  <div class="control-group">
+                    <%= f.label :mriskcapitals, 'Max risk on Capital (%)', class: "control-label" %>
+                    <div class="controls">
+                       <%= f.text_field :mriskcapital,placeholder: "1",  class: "input-xlarge" %>     
+                    </div>
+
+                  </div>
+
+                  <div class="control-group">
+                    <%= f.label :mcats, 'Max Capital Allocated to Stock (%)', class: "control-label" %>
+                    <div class="controls">
+                     <%= f.text_field :mcats,placeholder: "10",  class: "input-xlarge" %>     
+                    </div>
+
+                  </div>
+                    </fieldset>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+        <%= f.submit "Create Portfolio", class: "btn btn-success", id: "newportsubmitbtn" %>
+        <% end %>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+
+
+
+

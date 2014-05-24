@@ -54,9 +54,8 @@ $( document ).ready(function() {
 
         $(document).on('click', '#datepicker', function(event){
           $('#datepicker').datepicker({
-            format: "dd/mm/yyyy",
-            orientation: "top auto",
-            todayHighlight: true
+            dateFormat: "dd/mm/yy",
+
           });
         });
 
@@ -67,6 +66,7 @@ $( document ).ready(function() {
               dataType: "script"
             });
         });
+
 
         // $('#showtradelink').click(function(){
         //     // $("#showtrades").html("show trades box");

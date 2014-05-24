@@ -32,6 +32,9 @@
                           <% end %>
 
 <span class="btn"><%= link_to 'New Trade', new_portfolio_trade_path(@portfolio), id: "newtradelink"  %></span>
+
+
+
 <span class="btn"><%= link_to 'Settings', edit_user_portfolio_path(@user, @portfolio) %></span>
 <!-- <span class="btn"><%#= link_to 'Back', portfolios_path %></span> -->
 <span class="btn"><%= link_to 'Destroy', user_portfolio_path(@user, @portfolio), method: :delete, data: { confirm: 'Are you sure?' } %></span>
@@ -42,3 +45,8 @@
 <div class="well" id="showtrades">
   <%= render "trades/trades" %>
 </div>
+
+
+
+<%= link_to 'Click Me', edit_user_portfolio_path(@user, @portfolio), data: { toggle: 'modal', target: '#modal'}  %>
+<a data-toggle="modal" href="#{edit_user_portfolio_path(@user, @portfolio)}" data-target="#modal">Click me</a>

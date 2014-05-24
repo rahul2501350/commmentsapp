@@ -1,6 +1,8 @@
 class StocksController < ApplicationController
+=begin
   # GET /stocks
   # GET /stocks.json
+
   def index
     @stocks = Stock.all
 
@@ -83,23 +85,10 @@ class StocksController < ApplicationController
   end
 
 
-
-
-  def list
-
-=begin
-    @stocks = Stock.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @stocks }
-    end
 =end
 
 
-
-
-
+  def list
 
     if params[:term]
       like= "%".concat(params[:term].concat("%"))
@@ -113,7 +102,7 @@ class StocksController < ApplicationController
       format.html # show.html.erb
       format.json { render json: list }
     end
-
-
   end
+
+  
 end

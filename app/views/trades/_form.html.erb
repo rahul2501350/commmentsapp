@@ -1,43 +1,21 @@
-                <% if false %>
-                    <%= form_for([@portfolio, @trade]) do |f| %>
-                    <% if @trade.errors.any? %>
-                      <div id="error_explanation">
-                        <h2><%= pluralize(@trade.errors.count, "error") %> prohibited this trade from being saved:</h2>
 
-                        <ul>
-                        <% @trade.errors.full_messages.each do |msg| %>
-                          <li><%= msg %></li>
-                        <% end %>
-                        </ul>
-                      </div>
-                    <% end %>
-
-                    <div class="field">
-                      <%= f.label :stock %><br />
-                      <%= f.text_field :stock %>
-                    </div>
-                    <div class="field">
-                      <%= f.label :qty %><br />
-                      <%= f.text_field :qty %>
-                    </div>
-                    <div class="field">
-                      <%= f.label :buy_price %><br />
-                      <%= f.text_field :buy_price %>
-                    </div>
-                    <div class="field">
-                      <%= f.label :buy_date %><br />
-                      <%= f.datetime_select :buy_date %>
-                    </div>
-                    <div class="field">
-                      <%= f.label :bepoint %><br />
-                      <%= f.text_field :bepoint %>
-                    </div>
-                    <div class="actions">
-                      <%= f.submit %>
-                    </div>
-                    <span class="btn" id="hide">Hide</span>
-                  <% end %>
-                <% end %>
+                <script>
+  $(function() {
+    $( "#stockinput" ).autocomplete(
+    { 
+      minLength: 2,
+      focus: function( event, ui ) {
+            $( "#stockinput" ).val( ui.item.value );
+            return false;
+          },
+       source:"/list.json"
+    }).data( "ui-autocomplete" )._renderItem = function( ul, item ) {
+          return $( "<li>" )
+           .append( "<a>" + item.label + "<br>" + item.value + "</a>" )
+            .appendTo( ul );
+          };
+  });
+</script>
 
 <div class="home-signup">
   <div class="home-signin-box">
@@ -63,7 +41,7 @@
        <div class="control-group">
          <%= f.label :stock, class: "control-label" %>
          <div class="controls">
-           <%= f.text_field :stock, class: "input-xlarge" %>
+           <%= f.text_field :stock, class: "input-xlarge", id: "stockinput" %>
          </div>
        </div>
 
